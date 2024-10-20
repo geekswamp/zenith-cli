@@ -12,7 +12,9 @@ type (
 
 		FindByID(id *uuid.UUID) (*model.{{ ToPascalCase .FeatureName }}, error)
 
-		Update({{ ToCamelCase .FeatureName }} *model.{{ ToPascalCase .FeatureName }}) error
+		Update(id *uuid.UUID, {{ ToCamelCase .FeatureName }} *model.{{ ToPascalCase .FeatureName }}) error
+
+		Delete(id *uuid.UUID) error
     }
 
 	{{ ToCamelCase .FeatureName }}Repository struct{ *Repository }
@@ -27,15 +29,18 @@ func (r *{{ ToCamelCase .FeatureName }}Repository) Create({{ ToCamelCase .Featur
 }
 
 func (r *{{ ToCamelCase .FeatureName }}Repository) FindByID(id *uuid.UUID) (*model.{{ ToPascalCase .FeatureName }}, error) {
-	result := new(model.{{ ToPascalCase .FeatureName }})
-
-	if err := r.db.First(result, id).Error; err != nil {
+	var result model.{{ ToPascalCase .FeatureName }}
+	if err := r.db.First(&result, id).Error; err != nil {
 		return nil, err
 	}
 
-	return result, nil
+	return &result, nil
 }
 
 func (r *{{ ToCamelCase .FeatureName }}Repository) Update({{ ToCamelCase .FeatureName }} *model.{{ ToPascalCase .FeatureName }}) error {
-	return r.db.Clauses(clause.Returning{}).Save({{ ToCamelCase .FeatureName }}).Error
+	return r.db.Clauses(clause.Returning{}).Update({{ ToCamelCase .FeatureName }}).Error
+}
+
+func (r *{{ ToCamelCase .FeatureName }}Repository) Delete(id *uuid.UUID) error {
+    return r.db.Delete(&model.{{ ToPascalCase .FeatureName }}{}, id).Error
 }
