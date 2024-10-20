@@ -50,7 +50,7 @@ func (h *{{ ToPascalCase .FeatureName }}Handler) FindByID(ctx *gin.Context) {
 		return
     }
 
-    result, err := h.{{ ToCamelCase .FeatureName }}Service.FindByID(id)
+    result, err := h.{{ ToCamelCase .FeatureName }}Service.FindByID(&id)
     if err != nil {
     	h.response.Error(ctx, err)
     	return
@@ -72,13 +72,13 @@ func (h *{{ ToPascalCase .FeatureName }}Handler) Update(ctx *gin.Context) {
 		return
 	}
 
-	body, err := utils.ValidateBody[types.{{ ToPascalCase .FeatureName }}UpdateRequest](ctx)
+	body, err := utils.ValidateBody[request.{{ ToPascalCase .FeatureName }}UpdateRequest](ctx)
 	if err != nil {
 		h.response.Error(ctx, err)
 		return
 	}
 
-	result, err := h.{{ ToCamelCase .FeatureName }}Service.Update(id, body)
+	result, err := h.{{ ToCamelCase .FeatureName }}Service.Update(&id, body)
 	if err != nil {
 		h.response.Error(ctx, err)
 		return
