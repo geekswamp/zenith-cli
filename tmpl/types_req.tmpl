@@ -2,10 +2,10 @@ package request
 
 type (
 	{{ ToPascalCase .FeatureName }}CreateRequest struct {
-		Name string `json:"name" validate:"required,min=3,max=100"`
+		Name string `json:"name" validate:"required,min=3,max=100" reason:"required:Name is required;min:Name must be at least 3 characters;max:Name must be at most 100 characters"`
 	}
 
 	{{ ToPascalCase .FeatureName }}UpdateRequest struct {
-    	Name string `json:"name" validate:"required,min=3,max=100"`
+    	Name string `json:"name" validate:"required,min=3,max=100" reason:"required:Name is required;min:Name must be at least 3 characters;max:Name must be at most 100 characters"`
     }
 )
