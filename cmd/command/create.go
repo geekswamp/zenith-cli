@@ -18,7 +18,7 @@ var (
 		Short:    "Create a new project.",
 		Long:     "Creating a new project by cloning the Zenith boilerplate.",
 		Args:     cobra.MinimumNArgs(1),
-		Example:  "zen create my_project or zen create my_project --org github.com/username",
+		Example:  "zen create my_project or zen create my_project [--org organization] github.com/username",
 		RunE:     runCreate,
 		PostRunE: PostRunE,
 	}
@@ -76,6 +76,6 @@ func deleteFolder(basePath, folderName string) error {
 		printer.Yellow("📁 %s folder does not exist.", folderPath)
 		return nil
 	}
-	printer.Yellow("🗑️ Deleting %s folder...", folderPath)
+
 	return os.RemoveAll(folderPath)
 }
