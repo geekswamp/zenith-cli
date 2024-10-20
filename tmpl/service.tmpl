@@ -23,10 +23,7 @@ type (
 )
 
 func New{{ ToPascalCase .FeatureName }}Service (service *Service, {{ ToCamelCase .FeatureName }}Repo repository.{{ ToPascalCase .FeatureName }}Repository) {{ ToPascalCase .FeatureName }}Service {
-	return &{{ ToCamelCase .FeatureName }}Service{
-		Service: service,
-		{{ ToCamelCase .FeatureName }}Repo: {{ ToCamelCase .FeatureName }}Repo,
-	}
+	return &{{ ToCamelCase .FeatureName }}Service{Service: service, {{ ToCamelCase .FeatureName }}Repo: {{ ToCamelCase .FeatureName }}Repo}
 }
 
 func (s *{{ ToCamelCase .FeatureName }}Service) Create(body *request.{{ ToPascalCase .FeatureName }}CreateRequest) (*model.{{ ToPascalCase .FeatureName }}, error) {
