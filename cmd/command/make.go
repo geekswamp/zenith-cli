@@ -2,9 +2,9 @@ package command
 
 import (
 	"fmt"
-	"github.com/arifai/zenith-cli/pkg/printer"
-	"github.com/arifai/zenith-cli/pkg/utils"
-	"github.com/arifai/zenith-cli/tmpl"
+	"github.com/geekswap/zenith-cli/pkg/printer"
+	"github.com/geekswap/zenith-cli/pkg/utils"
+	"github.com/geekswap/zenith-cli/tmpl"
 	"github.com/spf13/cobra"
 	"io/fs"
 	"os"

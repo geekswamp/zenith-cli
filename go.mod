@@ -1,4 +1,4 @@
-module github.com/arifai/zenith-cli
+module github.com/geekswap/zenith-cli
 
 go 1.23.1
 

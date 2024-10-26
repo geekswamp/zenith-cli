@@ -2,7 +2,7 @@ package utils
 
 import (
 	"fmt"
-	"github.com/arifai/zenith-cli/pkg/printer"
+	"github.com/geekswap/zenith-cli/pkg/printer"
 	"golang.org/x/mod/modfile"
 	"os"
 	"os/exec"

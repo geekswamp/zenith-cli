@@ -1,6 +1,6 @@
 package main
 
-import "github.com/arifai/zenith-cli/cmd/zen"
+import "github.com/geekswap/zenith-cli/cmd/zen"
 
 func main() {
 	zen.Execute()

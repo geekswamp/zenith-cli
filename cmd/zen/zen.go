@@ -1,7 +1,7 @@
 package zen
 
 import (
-	"github.com/arifai/zenith-cli/cmd/command"
+	"github.com/geekswap/zenith-cli/cmd/command"
 	"github.com/spf13/cobra"
 	"os"
 )

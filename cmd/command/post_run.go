@@ -1,8 +1,8 @@
 package command
 
 import (
-	"github.com/arifai/zenith-cli/pkg/printer"
-	"github.com/arifai/zenith-cli/pkg/utils"
+	"github.com/geekswap/zenith-cli/pkg/printer"
+	"github.com/geekswap/zenith-cli/pkg/utils"
 	"github.com/spf13/cobra"
 )
 
